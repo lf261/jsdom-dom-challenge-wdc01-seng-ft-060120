@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", function(e){
 	const pauseButton = document.getElementById("pause")
 	const likeList = document.querySelector(".likes")
 	const submitButton = document.getElementById("submit")
+	const commentInput = document.getElementById("comment-input")
+	const commentList = document.getElementById("list")
 
 	let likeCounter = {}
 	let interv = startCounter();
@@ -79,9 +81,14 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 	heartButton.addEventListener("click", likeNumber)
 
-	
+	submitButton.addEventListener("click", function(e) {
+		e.preventDefault();
+		const p = document.createElement("p")
+		p.innerHTML = `<p></p>\n${commentInput.value}`
 
-
+		commentList.append(p);
+		commentInput.value = "";
+	})
 
 })
 
